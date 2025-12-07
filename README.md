@@ -51,11 +51,13 @@ This project demonstrates how Qubic events can be streamed, analyzed, automated,
 ## Architecture Overview
 
 ```json
+{
 EasyConnect → n8n Workflow → Render Backend API → Qubic Command Center Dashboard
 ↓
 Risk Engine + Wallet Intelligence Engine
 ↓
 Analytics + Summary + Fraud Scoring
+}
 ```
 
 Event Flow:
@@ -168,11 +170,13 @@ It processes incoming Qubic-style transactions, performs real-time fraud scoring
 
 ## Architecture Overview
 ```json
+{
 EasyConnect → n8n Workflow → Render Backend API → Qubic Command Center Dashboard
 ↓
 Risk Engine + Wallet Intelligence Engine
 ↓
 Analytics + Summary + Fraud Scoring
+}
 ```
 
 

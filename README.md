@@ -61,6 +61,7 @@ Risk Engine + Wallet Intelligence Engine
 
 Analytics + Summary + Fraud Scoring
 
+--- 
 
 Event Flow:
 1. EasyConnect triggers or workflows  
@@ -183,7 +184,7 @@ Risk Engine + Wallet Intelligence Engine
 Analytics + Summary + Fraud Scoring
 
 
-
+---
 
 
 The backend acts as the **intelligence & scoring layer** for the dashboard.

@@ -93,7 +93,7 @@ Event Flow:
 - Notification center  
 
 ### Deployment
-- Vercel (Frontend) - https://qubic-command-center.vercel.app/  
+- Vercel (Frontend) - https://qubic-command-center.vercel.app/
 - Render (Backend)  - https://qubic-fraud-backend.onrender.com
 - ( Github repo: https://github.com/sandhya13r/qubic-fraud-backend )
 

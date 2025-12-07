@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Qubic Command Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <div class="sidebar-logo">
+          <div class="logo-glow emoji-logo">💎</div>
+
+          <div class="logo-text">
+            <div class="logo-title">QUBIC</div>
+            <div class="logo-subtitle">COMMAND CENTER</div>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+          <a href="#" class="nav-item nav-item-active" data-view="overview">
+            <span class="nav-dot"></span>
+            <span>Overview</span>
+          </a>
+
+          <a href="#" class="nav-item" data-view="transactions">
+            <span class="nav-dot"></span>
+            <span>Transactions</span>
+          </a>
+
+          <a href="#" class="nav-item" data-view="analytics">
+            <span class="nav-dot"></span>
+            <span>Analytics</span>
+          </a>
+
+          <a href="#" class="nav-item" data-view="leaderboard">
+            <span class="nav-dot"></span>
+            <span>Leaderboard</span>
+          </a>
+          <a href="#" class="nav-item" data-view="settings">
+            <span class="nav-dot"></span>
+            <span>Settings</span>
+          </a>
+
+          <a href="#" class="nav-item" data-view="fraud">
+            <span class="nav-dot"></span>
+            <span>Fraud Detection</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="footer-label">NODE STATUS</div>
+
+          <div class="footer-status">
+            <span class="status-dot"></span>
+            <span>LIVE</span>
+          </div>
+
+          <div class="footer-description">
+            EasyConnect → N8N → Render → Dashboard.
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div class="main">
+
+        <!-- Topbar -->
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="badge badge-green">QUBIC</span>
+    <span class="topbar-subtitle">Real-time event analytics dashboard.</span>
+  </div>
+
+  <div class="topbar-right">
+    <div class="pipeline-pill">
+  <span class="pipeline-label">PIPELINE</span>
+  <div class="pipeline-flow">
+    <span class="pipeline-node">EasyConnect</span>
+    <span class="pipeline-arrow">→</span>
+    <span class="pipeline-node">n8n</span>
+    <span class="pipeline-arrow">→</span>
+    <span class="pipeline-node">Render</span>
+    <span class="pipeline-arrow">→</span>
+    <span class="pipeline-node">Dashboard</span>
+  </div>
+</div>
+
+
+    <!-- Notification Button -->
+    <button class="icon-button notification-button">
+      🔔
+      <span class="notif-dot"></span>
+    </button>
+
+    <!-- User Pill -->
+    <div class="user-pill">
+      <div class="user-avatar">
+  <span class="user-icon">👤</span>
+</div>
+
+      <div class="user-info">
+        <div class="user-name">Sandhya</div>
+        <div class="user-role">QUBIC BUILDER</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ✅ Notification Panel moved OUTSIDE header -->
+<div id="notif-panel" class="notif-panel hidden">
+  <div class="notif-header">Notifications</div>
+  <div id="notif-list" class="notif-list"></div>
+</div>
+
+        <!-- CONTENT -->
+        <main class="content">
+
+          <!-- OVERVIEW -->
+          <section class="view view-active" id="view-overview">
+
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Qubic Telemetry Overview</h1>
+
+                <p class="view-subtitle">
+                  Live Qubic smart-contract events —  <span class="highlight">Bid Orders, Ask Orders, Fills, Cancels</span> 
+  and more — streamed through your integrated pipeline.
+                </p>
+              
+
+            <!-- STAT CARDS -->
+            <div class="grid grid-4">
+
+              <div class="stat-card">
+                <div class="stat-label">Total Bid Orders</div>
+                <div class="stat-value" id="stat-total-orders">12,487</div>
+                <div class="stat-sub">Updated continuously</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">Bid Volume</div>
+                <div class="stat-value" id="stat-volume">3.42 M QUBIC</div>
+                <div class="stat-sub">Aggregated volume</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">Pipeline Latency</div>
+                <div class="stat-value" id="stat-latency">184 ms</div>
+                <div class="stat-sub">Low-latency flow</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">Pipeline Health</div>
+                <div class="stat-value">OPERATIONAL</div>
+                <div class="stat-sub">All systems functional</div>
+              </div>
+            </div>
+
+            <!-- Lower Grid -->
+            <div class="grid grid-2">
+
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <div class="panel-title">Recent Smart Contract Activity</div>
+                    <div class="panel-subtitle">
+                      Latest <span class="highlight">Bid Orders, Ask Orders, Fills, Cancels</span> events.
+                    </div>
+                  </div>
+
+                  <span class="pill-small">Live Feed</span>
+                </div>
+
+                <div class="activity-list" id="activity-list"></div>
+            
+          </section>
+
+          <!-- TRANSACTIONS -->
+          <section class="view" id="view-transactions">
+
+            <div class="transactions-header">
+              <h1 class="view-title">Transactions</h1>
+
+              <p class="view-subtitle">
+                All <span class="highlight">Bid Orders, Ask Orders, Fills, Cancels</span> events displayed with filtering and sorting.
+              </p>
+            </div>
+
+            <div class="tx-controls">
+              <input
+                type="text"
+                id="tx-search"
+                class="tx-search"
+                placeholder="Search by Sender / ID..."
+              />
+
+              <button id="tx-sort-amount" class="tx-sort">
+                Sort by Amount ↑↓
+              </button>
+            </div>
+
+            <div class="tx-table-wrapper">
+              <table class="tx-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Sender</th>
+                    <th>Amount</th>
+                    <th>Timestamp</th>
+                  </tr>
+                </thead>
+
+                <tbody id="tx-table-body"></tbody>
+              </table>
+            </div>
+
+            <div class="tx-pagination">
+              <button id="tx-prev" class="tx-page-btn">◀ Prev</button>
+              <span id="tx-page-indicator" class="tx-page-indicator">Page 1</span>
+              <button id="tx-next" class="tx-page-btn">Next ▶</button>
+            </div>
+
+          </section>
+
+          <!-- ANALYTICS -->
+          <section class="view" id="view-analytics">
+
+            <div class="analytics-header">
+              <h1 class="view-title">Analytics</h1>
+
+              <p class="view-subtitle">
+                Live analytics from <span class="highlight"> Bid Orders, Ask Orders, Fills, Cancels</span> streams.
+              </p>
+            </div>
+
+            <div class="grid grid-2">
+
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <div class="panel-title">Bid Volume Over Time</div>
+                    <div class="panel-subtitle">Auto-updating line chart.</div>
+                  </div>
+                </div>
+
+                <canvas id="lineChart" width="600" height="250" class="chart-canvas"></canvas>
+              </div>
+
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <div class="panel-title">Top Active Senders</div>
+                    <div class="panel-subtitle">Participation visualization.</div>
+                  </div>
+                </div>
+
+                <canvas id="barChart" width="600" height="250" class="chart-canvas"></canvas>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- LEADERBOARD -->
+<section class="view" id="view-leaderboard">
+  <div class="view-header">
+    <div>
+      <h1 class="view-title">Leaderboard</h1>
+      <p class="view-subtitle">
+        Gamified wallet rankings with <span class="highlight">levels, XP and badges</span>.
+      </p>
+    </div>
+  </div>
+
+  <!-- NEW: Single-column layout -->
+  <div class="leaderboard-grid leaderboard-single">
+
+    <!-- MAIN TABLE -->
+    <div class="panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Top Active Wallets</div>
+          <div class="panel-subtitle">
+            Sorted by combined <span class="highlight">volume, activity and fraud score</span>.
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-table-wrapper">
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Wallet</th>
+              <th>Level</th>
+              <th>XP</th>
+              <th>Volume</th>
+              <th>Trades</th>
+              <th>Badge</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Gamification Overview</div>
+          <div class="panel-subtitle">Engagement health of your ecosystem.</div>
+        </div>
+      </div>
+
+      <div id="leaderboard-summary" class="lb-summary"></div>
+    </div>
+
+    <!-- DISCORD INTEGRATION -->
+    <div class="panel integration-panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Discord Integration</div>
+          <div class="panel-subtitle">Community alerts & reward announcements.</div>
+        </div>
+        <span class="integration-pill integration-pill-ok">Connected</span>
+      </div>
+
+      <div class="integration-body">
+        <div class="integration-row">
+          <span class="integration-label">Server</span>
+          <span class="integration-value">QX / Qubic Builders Hub</span>
+        </div>
+        <div class="integration-row">
+          <span class="integration-label">Channel</span>
+          <span class="integration-value">#fraud-alerts-live</span>
+        </div>
+        <div class="integration-row">
+          <span class="integration-label">Active Triggers</span>
+          <span class="integration-value">High-risk wallets • Whale moves • New top 10 entry</span>
+        </div>
+        <p class="panel-footnote">
+          Powered via <span class="highlight">EasyConnect → n8n webhooks</span>.
+        </p>
+      </div>
+    </div>
+
+    <!-- TELEGRAM INTEGRATION -->
+    <div class="panel integration-panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Telegram Integration</div>
+          <div class="panel-subtitle">1:1 notifications for key wallets.</div>
+        </div>
+        <span class="integration-pill integration-pill-ok">Connected</span>
+      </div>
+
+      <div class="integration-body">
+        <div class="integration-row">
+          <span class="integration-label">Bot</span>
+          <span class="integration-value">@QubicGuardianBot</span>
+        </div>
+        <div class="integration-row">
+          <span class="integration-label">Subscribers</span>
+          <span class="integration-value">1,247 wallets watching risk score</span>
+        </div>
+        <div class="integration-row">
+          <span class="integration-label">Alerts</span>
+          <span class="integration-value">
+            Liquidation risk • Suspicious spikes • Fraud score > 70
+          </span>
+        </div>
+        <p class="panel-footnote">
+          Built on the same alert pipeline as dashboard notifications.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+        <!-- SETTINGS -->
+<section class="view" id="view-settings">
+  <div class="view-header">
+    <div>
+      <h1 class="view-title">Settings</h1>
+      <p class="view-subtitle">Manage pipeline configuration.</p>
+    </div>
+  </div>
+
+  <div class="panel settings-panel">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Pipeline Configuration</div>
+        <div class="panel-subtitle">EasyConnect → n8n → Render → Dashboard</div>
+      </div>
+    </div>
+
+    <div class="settings-body">
+      <label class="settings-label">Live Pipeline URL</label>
+
+      <input
+        type="text"
+        id="pipeline-url"
+        class="settings-input"
+        placeholder="https://your-api-endpoint.com/events"
+      />
+
+      <button id="save-pipeline" class="save-btn">Save</button>
+
+      <p class="panel-footnote">Used when switching to real event streaming.</p>
+    </div>
+  </div>
+</section>
+
+
+          <!-- FRAUD -->
+          <section class="view" id="view-fraud">
+
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Fraud Detection</h1>
+
+                <p class="view-subtitle">
+                  Real-time <span class="highlight">risk analysis</span> across Bid Orders, Ask Orders, Fills, Cancels events.
+                </p>
+              </div>
+
+            <div class="grid grid-3">
+
+<!-- Small Fraud Monitor -->
+<div class="panel fraud-monitor-box">
+  <div class="panel-header">
+    <div>
+      <div class="panel-title">Fraud Monitor</div>
+      <div class="panel-subtitle">Real-time suspicious pattern detection.</div>
+    </div>
+  </div>
+
+  <div class="fraud-monitor-content">
+    <div id="fraud-mini-score">10%</div>
+    <div id="fraud-mini-status">Normal activity</div>
+  </div>
+</div>
+
+
+             
+
+            </div>
+
+            <!-- Anomaly Table -->
+            <div class="panel" style="margin-top:25px;">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Anomaly Events</div>
+                  <div class="panel-subtitle">High-frequency patterns, volume spikes, duplicate senders.</div>
+                </div>
+              </div>
+
+              <div class="tx-table-wrapper" style="margin-top:15px;">
+                <table class="tx-table">
+                  <thead>
+                    <tr>
+                      <th>Event ID</th>
+                      <th>Type</th>
+                      <th>Sender</th>
+                      <th>Severity</th>
+                      <th>Details</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="fraud-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- SETTINGS -->
+          <section class="view" id="view-settings">
+            <h1 class="view-title">Settings</h1>
+            <p class="view-subtitle">Manage environment settings, API keys and theme preferences.</p>
+          </section>
+
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+

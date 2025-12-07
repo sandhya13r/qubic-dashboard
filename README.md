@@ -50,7 +50,7 @@ This project demonstrates how Qubic events can be streamed, analyzed, automated,
 
 ## Architecture Overview
 
-###EasyConnect → n8n → Render Backend → Qubic Command Center (Frontend)
+### EasyConnect → n8n → Render Backend → Qubic Command Center (Frontend)
 
 Event Flow:
 1. EasyConnect triggers or workflows  
@@ -82,7 +82,7 @@ Event Flow:
 - Notification center  
 
 ### Deployment
-- Netlify or Vercel (Frontend)  
+- Vercel (Frontend)  
 - Render (Backend)
 
 ---

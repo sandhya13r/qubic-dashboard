@@ -82,8 +82,8 @@ Event Flow:
 - Notification center  
 
 ### Deployment
-- Vercel (Frontend)  
-- Render (Backend)
+- Vercel (Frontend) - https://qubic-command-center.vercel.app/  
+- Render (Backend)  - https://qubic-fraud-backend.onrender.com  ( Github repo: https://github.com/sandhya13r/qubic-fraud-backend )
 
 ---
 
@@ -112,6 +112,11 @@ The system showcases:
 - Multi-chain support  
 
 ---
+
+# Live Demo:
+## Frontend: https://qubic-command-center.vercel.app/
+
+
 # Qubic Fraud Detection Backend
 
 A lightweight, high-performance backend powering the **Qubic Command Center Dashboard**.  
@@ -256,6 +261,7 @@ GET /api/transactions/latest
 GET /api/summary  
 POST /api/transactions  
 
+## Qubic Command Center is built as a complete end-to-end prototype demonstrating how Qubic events can be monitored, analyzed, and automated in real time. The system is modular and ready for future expansion once public event streams become accessible. Thank you for reviewing this project!
 
 
 

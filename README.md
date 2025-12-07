@@ -50,7 +50,12 @@ This project demonstrates how Qubic events can be streamed, analyzed, automated,
 
 ## Architecture Overview
 
-### EasyConnect → n8n → Render Backend → Qubic Command Center (Frontend)
+EasyConnect → n8n → Render Backend → Qubic Command Center Dashboard
+                            ↓
+                 Risk Engine + Wallet Engine
+                            ↓
+                 Analytics + Summary + Alerts
+
 
 Event Flow:
 1. EasyConnect triggers or workflows  
@@ -162,11 +167,12 @@ It processes incoming Qubic-style transactions, performs real-time fraud scoring
 
 ## Architecture Overview
 
-EasyConnect → n8n Workflow → Render Backend API → Qubic Command Center Dashboard
-↓
-Risk Engine + Wallet Intelligence Engine
-↓
-Analytics + Summary + Fraud Scoring
+EasyConnect → n8n → Render Backend → Qubic Command Center Dashboard
+                            ↓
+                 Risk Engine + Wallet Engine
+                            ↓
+                 Analytics + Summary + Alerts
+
 
 
 The backend acts as the **intelligence & scoring layer** for the dashboard.
